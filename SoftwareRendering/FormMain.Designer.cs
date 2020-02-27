@@ -25,11 +25,14 @@
         private void InitializeComponent() {
             this.panel1 = new System.Windows.Forms.Panel();
             this.pbxDraw = new System.Windows.Forms.PictureBox();
+            this.chkFillCircles = new System.Windows.Forms.CheckBox();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDraw)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.chkFillCircles);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(600, 0);
             this.panel1.Name = "panel1";
@@ -46,6 +49,18 @@
             this.pbxDraw.TabStop = false;
             this.pbxDraw.Paint += new System.Windows.Forms.PaintEventHandler(this.pbxDraw_Paint);
             // 
+            // chkFillCircles
+            // 
+            this.chkFillCircles.AutoSize = true;
+            this.chkFillCircles.Checked = true;
+            this.chkFillCircles.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkFillCircles.Location = new System.Drawing.Point(6, 12);
+            this.chkFillCircles.Name = "chkFillCircles";
+            this.chkFillCircles.Size = new System.Drawing.Size(118, 16);
+            this.chkFillCircles.TabIndex = 0;
+            this.chkFillCircles.Text = "Fill 10000 Circles";
+            this.chkFillCircles.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -56,6 +71,8 @@
             this.Name = "FormMain";
             this.Text = "Software Rendering";
             this.Shown += new System.EventHandler(this.FormMain_Shown);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDraw)).EndInit();
             this.ResumeLayout(false);
 
@@ -65,6 +82,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pbxDraw;
+        private System.Windows.Forms.CheckBox chkFillCircles;
     }
 }
 

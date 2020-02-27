@@ -72,9 +72,11 @@ namespace SoftwareRendering {
         private void DrawGraphics(Graphics gfx) {
             var st = GetTime();
             int step = 10;
-            for (int y = 0; y < 1000; y += step) {
-                for (int x = 0; x < 1000; x += step) {
-                    gfx.FillEllipse(Brushes.Lime, x, y, step, step);
+            if (chkFillCircles.Checked) {
+                for (int y = 0; y < 1000; y += step) {
+                    for (int x = 0; x < 1000; x += step) {
+                        gfx.FillEllipse(Brushes.Lime, x, y, step, step);
+                    }
                 }
             }
             var dt = GetTime() - st;
