@@ -66,16 +66,20 @@ namespace SoftwareRendering {
         }
 
         private void pbxDraw_Paint(object sender, PaintEventArgs e) {
+            DrawGraphics(e.Graphics);
+        }
+
+        private void DrawGraphics(Graphics gfx) {
             var st = GetTime();
             int step = 10;
             for (int y = 0; y < 1000; y += step) {
                 for (int x = 0; x < 1000; x += step) {
-                    e.Graphics.FillEllipse(Brushes.Lime, x, y, step, step);
+                    gfx.FillEllipse(Brushes.Lime, x, y, step, step);
                 }
             }
             var dt = GetTime() - st;
             string info = $"fps:{1.0 / scene.timeDelta:0} fps2:{1.0 / dt:0} time:{scene.timeDelta:0.000} pos:{scene.mousePos}";
-            e.Graphics.DrawString(info, Font, Brushes.Black, 0, 0);
+            gfx.DrawString(info, Font, Brushes.Black, 0, 0);
         }
     }
 }
