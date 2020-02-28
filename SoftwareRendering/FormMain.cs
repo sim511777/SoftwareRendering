@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,18 +16,9 @@ namespace SoftwareRendering {
 
         public FormMain() {
             InitializeComponent();
-            SetStyle(pbxDraw, ControlStyles.Opaque, true);
+            Util.SetStyle(pbxDraw, ControlStyles.Opaque, true);
             scene = new SceneManager();
             input = new InputManager(pbxDraw);
-        }
-
-        public static double GetTime() {
-            return (double)Stopwatch.GetTimestamp() / Stopwatch.Frequency;
-        }
-
-        private static void SetStyle(Control control, ControlStyles styles, bool flag ) {
-            MethodInfo method = control.GetType().GetMethod("SetStyle", BindingFlags.NonPublic | BindingFlags.Instance);
-            method.Invoke(control, new object[] { styles, flag });
         }
 
         private void FormMain_Shown(object sender, EventArgs e) {
@@ -45,14 +34,14 @@ namespace SoftwareRendering {
         }
 
         private void GameLoop() {
-            double timeOld = GetTime();
+            double timeOld = Util.GetTime();
             while (true) {
                 Application.DoEvents();
                 if (this.IsDisposed)
                     break;
 
                 ProcessInput();
-                double timeNow = GetTime();
+                double timeNow = Util.GetTime();
                 double timeDelta = timeNow - timeOld;
                 UpdateScene(timeDelta);
                 timeOld = timeNow;
@@ -78,7 +67,7 @@ namespace SoftwareRendering {
 
         private void DrawGraphics(Graphics gfx) {
             gfx.Clear(Color.White);
-            var st = GetTime();
+            var st = Util.GetTime();
             int step = 10;
             if (chkFillCircles.Checked) {
                 for (int y = 0; y < 1000; y += step) {
@@ -87,7 +76,7 @@ namespace SoftwareRendering {
                     }
                 }
             }
-            var dt = GetTime() - st;
+            var dt = Util.GetTime() - st;
             string info = $"fps:{1.0 / scene.timeDelta:0} fps2:{1.0 / dt:0} time:{scene.timeDelta:0.000} pos:{scene.mousePos}";
             gfx.DrawString(info, Font, Brushes.Black, 0, 0);
         }
