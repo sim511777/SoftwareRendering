@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,12 +18,18 @@ namespace SoftwareRendering {
 
         public FormMain() {
             InitializeComponent();
+            SetStyle(pbxDraw, ControlStyles.Opaque, true);
             scene = new SceneManager();
             input = new InputManager(pbxDraw);
         }
 
         public static double GetTime() {
             return (double)Stopwatch.GetTimestamp() / Stopwatch.Frequency;
+        }
+
+        private static void SetStyle(Control control, ControlStyles styles, bool flag ) {
+            MethodInfo method = control.GetType().GetMethod("SetStyle", BindingFlags.NonPublic | BindingFlags.Instance);
+            method.Invoke(control, new object[] { styles, flag });
         }
 
         private void FormMain_Shown(object sender, EventArgs e) {
