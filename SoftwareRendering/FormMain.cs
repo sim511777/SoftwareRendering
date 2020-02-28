@@ -84,13 +84,13 @@ namespace SoftwareRendering {
 
         private void pbxDraw_Paint(object sender, PaintEventArgs e) {
             using (Graphics g = Graphics.FromImage(backBuffer)) {
+                DrawImgBuf();
                 DrawGraphics(g);
-                DrawImageBuffer();
             }
             e.Graphics.DrawImageUnscaledAndClipped(backBuffer, pbxDraw.ClientRectangle);
         }
 
-        private unsafe void DrawImageBuffer() {
+        private unsafe void DrawImgBuf() {
             int red = Color.Red.ToArgb();
             int* ptr = (int *)imgBuf;
             for (int i = 100; i < 200; i++) {
