@@ -61,6 +61,7 @@
             this.pbxDraw.TabIndex = 0;
             this.pbxDraw.TabStop = false;
             this.pbxDraw.Paint += new System.Windows.Forms.PaintEventHandler(this.pbxDraw_Paint);
+            this.pbxDraw.Layout += new System.Windows.Forms.LayoutEventHandler(this.pbxDraw_Layout);
             // 
             // FormMain
             // 
