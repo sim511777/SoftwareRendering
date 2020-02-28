@@ -75,7 +75,7 @@ namespace SoftwareRendering {
 
         private void UpdateScene(double timeDelta) {
             scene.timeDelta = timeDelta;
-            scene.mousePos = input.pos;
+            scene.mousePos = input.Pos;
         }
 
         private void RenderScene() {
@@ -110,7 +110,7 @@ namespace SoftwareRendering {
                 }
             }
             var dt = Util.GetTime() - st;
-            string info = $"fps:{1.0 / scene.timeDelta:0} fps2:{1.0 / dt:0} time:{scene.timeDelta:0.000} pos:{scene.mousePos}";
+            string info = string.Format("fps:{0:0} fps2:{1:0} time:{2:0.000} pos:{3}", 1.0 / scene.timeDelta, 1.0 / dt, scene.timeDelta, scene.mousePos);
             gfx.DrawString(info, Font, Brushes.Black, 0, 0);
         }
 

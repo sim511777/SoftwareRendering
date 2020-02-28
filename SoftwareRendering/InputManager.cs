@@ -14,10 +14,22 @@ namespace SoftwareRendering {
             this.control = control;
         }
 
-        public bool this[Key key] => Keyboard.IsKeyDown(key);
+        public bool this[Key key] {
+            get {
+                return Keyboard.IsKeyDown(key);
+            }
+        }
 
-        public bool this[MouseButtons mbtn] => Control.MouseButtons.HasFlag(mbtn);
+        public bool this[MouseButtons mbtn] {
+            get {
+                return Control.MouseButtons.HasFlag(mbtn);
+            }
+        }
 
-        public Point pos => control.PointToClient(Control.MousePosition);
+        public Point Pos {
+            get {
+                return control.PointToClient(Control.MousePosition);
+            }
+        }
     }
 }
