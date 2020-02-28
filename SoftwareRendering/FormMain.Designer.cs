@@ -24,8 +24,8 @@
         /// </summary>
         private void InitializeComponent() {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pbxDraw = new System.Windows.Forms.PictureBox();
             this.chkFillCircles = new System.Windows.Forms.CheckBox();
+            this.pbxDraw = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDraw)).BeginInit();
             this.SuspendLayout();
@@ -39,16 +39,6 @@
             this.panel1.Size = new System.Drawing.Size(200, 450);
             this.panel1.TabIndex = 0;
             // 
-            // pbxDraw
-            // 
-            this.pbxDraw.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbxDraw.Location = new System.Drawing.Point(0, 0);
-            this.pbxDraw.Name = "pbxDraw";
-            this.pbxDraw.Size = new System.Drawing.Size(600, 450);
-            this.pbxDraw.TabIndex = 0;
-            this.pbxDraw.TabStop = false;
-            this.pbxDraw.Paint += new System.Windows.Forms.PaintEventHandler(this.pbxDraw_Paint);
-            // 
             // chkFillCircles
             // 
             this.chkFillCircles.AutoSize = true;
@@ -60,6 +50,17 @@
             this.chkFillCircles.TabIndex = 0;
             this.chkFillCircles.Text = "Fill 10000 Circles";
             this.chkFillCircles.UseVisualStyleBackColor = true;
+            // 
+            // pbxDraw
+            // 
+            this.pbxDraw.BackColor = System.Drawing.Color.White;
+            this.pbxDraw.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbxDraw.Location = new System.Drawing.Point(0, 0);
+            this.pbxDraw.Name = "pbxDraw";
+            this.pbxDraw.Size = new System.Drawing.Size(600, 450);
+            this.pbxDraw.TabIndex = 0;
+            this.pbxDraw.TabStop = false;
+            this.pbxDraw.Paint += new System.Windows.Forms.PaintEventHandler(this.pbxDraw_Paint);
             // 
             // FormMain
             // 

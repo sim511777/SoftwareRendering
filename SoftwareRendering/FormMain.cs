@@ -16,7 +16,6 @@ namespace SoftwareRendering {
 
         public FormMain() {
             InitializeComponent();
-            Util.SetStyle(pbxDraw, ControlStyles.Opaque, true);
             scene = new SceneManager();
             input = new InputManager(pbxDraw);
         }
@@ -66,7 +65,6 @@ namespace SoftwareRendering {
         }
 
         private void DrawGraphics(Graphics gfx) {
-            gfx.Clear(Color.White);
             var st = Util.GetTime();
             int step = 10;
             if (chkFillCircles.Checked) {
