@@ -58,13 +58,13 @@ namespace SoftwareRendering {
             double timeOld = Util.GetTime();
             while (true) {
                 Application.DoEvents();
+
                 if (this.IsDisposed)
                     break;
 
                 ProcessInput();
                 double timeNow = Util.GetTime();
-                double timeDelta = timeNow - timeOld;
-                UpdateScene(timeDelta);
+                UpdateScene(timeNow - timeOld);
                 timeOld = timeNow;
                 RenderScene();
             }
