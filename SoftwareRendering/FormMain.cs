@@ -70,6 +70,7 @@ namespace SoftwareRendering {
         }
 
         private void DrawGraphics(Graphics gfx) {
+            gfx.Clear(Color.White);
             var st = GetTime();
             int step = 10;
             if (chkFillCircles.Checked) {
