@@ -12,9 +12,25 @@ namespace SoftwareRendering {
         [DllImport("user32.dll")]
         private static extern short GetAsyncKeyState(Keys vKey);
 
+        public bool WheelUp { get; private set; }
+        public bool WheelDown { get; private set; }
+
         private Control control;
-        public InputManager(Control control) {
-            this.control = control;
+        public InputManager(Control _control) {
+            control = _control;
+            control.MouseWheel += this.Control_MouseWheel;
+        }
+
+        private void Control_MouseWheel(object sender, MouseEventArgs e) {
+            if (e.Delta > 0)
+                WheelUp = true;
+            if (e.Delta < 0)
+                WheelDown = true;
+        }
+
+        public void MouseWheelReset() {
+            WheelUp = false;
+            WheelDown = false;
         }
 
         public bool this[Keys key] {

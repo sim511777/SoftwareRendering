@@ -24,8 +24,8 @@ namespace SoftwareRendering {
 
         public FormMain() {
             InitializeComponent();
-            scene = new SceneManager();
             input = new InputManager(pbxDraw);
+            scene = new SceneManager();
             ReallocBuffer();
         }
 
