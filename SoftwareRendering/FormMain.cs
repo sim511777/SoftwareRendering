@@ -35,8 +35,8 @@ namespace SoftwareRendering {
                 Marshal.FreeHGlobal(imgBuf);
             }
 
-            bw = pbxDraw.Width;
-            bh = pbxDraw.Height;
+            bw = Math.Max(pbxDraw.Width, 16);
+            bh = Math.Max(pbxDraw.Height, 16);
             step = bw * 4;
             imgBuf = Marshal.AllocHGlobal(step * bh);
             backBuffer = new Bitmap(bw, bh, step, PixelFormat.Format32bppPArgb, imgBuf);
