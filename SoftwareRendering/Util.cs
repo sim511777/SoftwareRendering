@@ -43,4 +43,12 @@ namespace SoftwareRendering {
             }
         }
     }
+
+    public static class ControlExtension {
+        public static void SetStyle(this Control ctrl, ControlStyles style, bool val) {
+            var method = typeof(Control).GetMethod("SetStyle", BindingFlags.NonPublic | BindingFlags.Instance);
+            object[] prms = { ControlStyles.AllPaintingInWmPaint | ControlStyles.DoubleBuffer, true };
+            method.Invoke(ctrl, prms);
+        }
+    }
 }
