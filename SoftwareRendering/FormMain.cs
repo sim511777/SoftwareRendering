@@ -91,26 +91,14 @@ namespace SoftwareRendering {
         }
 
         private unsafe void DrawImgBuf() {
-            int red = Color.Red.ToArgb();
-            int* ptr = (int *)imgBuf;
-            for (int i = 100; i < 200; i++) {
-                *(ptr + bw * i + i) = red;
-            }
+            int clearColor = Color.Black.ToArgb();
+            Util.Memset4(imgBuf, clearColor, bw * bh);
         }
 
         private void DrawGraphics(Graphics gfx) {
-            gfx.Clear(Color.White);
-            var st = Util.GetTime();
-            int step = 10;
-            if (chkFillCircles.Checked) {
-                for (int y = 0; y < 1000; y += step) {
-                    for (int x = 0; x < 1000; x += step) {
-                        gfx.FillEllipse(Brushes.Lime, x, y, step, step);
-                    }
-                }
-            }
-            var dt = Util.GetTime() - st;
-            string info = string.Format("fps:{0:0} fps2:{1:0} time:{2:0.000} pos:{3}", 1.0 / scene.timeDelta, 1.0 / dt, scene.timeDelta, scene.mousePos);
+            string info = $"fps:{1.0 / scene.timeDelta:0} time:{scene.timeDelta:0.000}sec";
+            var size = gfx.MeasureString(info, Font);
+            gfx.FillRectangle(Brushes.White, 0, 0, size.Width, size.Height);
             gfx.DrawString(info, Font, Brushes.Black, 0, 0);
         }
 
