@@ -13,33 +13,12 @@ using System.Windows.Forms;
 
 namespace SoftwareRendering {
     public partial class FormMain : Form {
-        private SceneManager scene;
+        private RenderManager renderer = new RenderManager();
         private InputManager input;
-
-        private Bitmap backBuffer;
-        private IntPtr imgBuf;
-        private int bw;
-        private int bh;
-        private int step;
+        private SceneManager scene;
 
         public FormMain() {
             InitializeComponent();
-            input = new InputManager(pbxDraw);
-            scene = new SceneManager();
-            ReallocBuffer();
-        }
-
-        private void ReallocBuffer() {
-            if (backBuffer != null) {
-                backBuffer.Dispose();
-                Marshal.FreeHGlobal(imgBuf);
-            }
-
-            bw = Math.Max(pbxDraw.Width, 16);
-            bh = Math.Max(pbxDraw.Height, 16);
-            step = bw * 4;
-            imgBuf = Marshal.AllocHGlobal(step * bh);
-            backBuffer = new Bitmap(bw, bh, step, PixelFormat.Format32bppPArgb, imgBuf);
         }
 
         private void FormMain_Shown(object sender, EventArgs e) {
@@ -49,9 +28,18 @@ namespace SoftwareRendering {
         }
 
         private void InitGame() {
+            input = new InputManager(pbxDraw);
+            scene = new SceneManager();
         }
 
         private void FreeGame() {
+            renderer.FreeBuffer();
+        }
+
+        private void pbxDraw_Layout(object sender, LayoutEventArgs e) {
+            renderer.ReallocBuffer(pbxDraw);
+            if (scene != null)
+                renderer.Draw(scene);
         }
 
         private void GameLoop() {
@@ -66,7 +54,7 @@ namespace SoftwareRendering {
                 double timeNow = Util.GetTime();
                 UpdateScene(timeNow - timeOld);
                 timeOld = timeNow;
-                RenderScene();
+                renderer.Draw(scene);
             }
         }
 
@@ -76,34 +64,6 @@ namespace SoftwareRendering {
         private void UpdateScene(double timeDelta) {
             scene.timeDelta = timeDelta;
             scene.mousePos = input.Pos;
-        }
-
-        private void RenderScene() {
-            pbxDraw.Invalidate();
-        }
-
-        private void pbxDraw_Paint(object sender, PaintEventArgs e) {
-            using (Graphics g = Graphics.FromImage(backBuffer)) {
-                DrawImgBuf();
-                DrawGraphics(g);
-            }
-            e.Graphics.DrawImageUnscaledAndClipped(backBuffer, pbxDraw.ClientRectangle);
-        }
-
-        private unsafe void DrawImgBuf() {
-            int clearColor = Color.Black.ToArgb();
-            Util.Memset4(imgBuf, clearColor, bw * bh);
-        }
-
-        private void DrawGraphics(Graphics gfx) {
-            string info = $"fps:{1.0 / scene.timeDelta:0} time:{scene.timeDelta:0.000}sec";
-            var size = gfx.MeasureString(info, Font);
-            gfx.FillRectangle(Brushes.White, 0, 0, size.Width, size.Height);
-            gfx.DrawString(info, Font, Brushes.Black, 0, 0);
-        }
-
-        private void pbxDraw_Layout(object sender, LayoutEventArgs e) {
-            ReallocBuffer();
         }
     }
 }

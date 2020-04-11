@@ -24,8 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pbxDraw = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxDraw)).BeginInit();
+            this.pbxDraw = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // panel1
@@ -38,14 +37,11 @@
             // 
             // pbxDraw
             // 
-            this.pbxDraw.BackColor = System.Drawing.Color.Transparent;
             this.pbxDraw.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbxDraw.Location = new System.Drawing.Point(0, 0);
             this.pbxDraw.Name = "pbxDraw";
             this.pbxDraw.Size = new System.Drawing.Size(600, 450);
-            this.pbxDraw.TabIndex = 0;
-            this.pbxDraw.TabStop = false;
-            this.pbxDraw.Paint += new System.Windows.Forms.PaintEventHandler(this.pbxDraw_Paint);
+            this.pbxDraw.TabIndex = 1;
             this.pbxDraw.Layout += new System.Windows.Forms.LayoutEventHandler(this.pbxDraw_Layout);
             // 
             // FormMain
@@ -58,7 +54,6 @@
             this.Name = "FormMain";
             this.Text = "Software Rendering";
             this.Shown += new System.EventHandler(this.FormMain_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.pbxDraw)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -66,7 +61,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pbxDraw;
+        private System.Windows.Forms.Panel pbxDraw;
     }
 }
 
