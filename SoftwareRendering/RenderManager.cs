@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -23,6 +24,7 @@ namespace SoftwareRendering {
             bh = Math.Max(ctrl.ClientSize.Height, 16);
             buf = Marshal.AllocHGlobal(bw * bh * 4);
             backBuffer = BufferedGraphicsManager.Current.Allocate(ctrl.CreateGraphics(), new Rectangle(0, 0, bw, bh));
+            backBuffer.Graphics.CompositingMode = CompositingMode.SourceCopy;
             font = SystemFonts.DefaultFont;
         }
 

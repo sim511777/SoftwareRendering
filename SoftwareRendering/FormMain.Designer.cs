@@ -53,6 +53,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormMain";
             this.Text = "Software Rendering";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Shown += new System.EventHandler(this.FormMain_Shown);
             this.ResumeLayout(false);
 
