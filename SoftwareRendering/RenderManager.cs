@@ -25,7 +25,7 @@ namespace SoftwareRendering {
             buf = Marshal.AllocHGlobal(bw * bh * 4);
             backBuffer = BufferedGraphicsManager.Current.Allocate(ctrl.CreateGraphics(), new Rectangle(0, 0, bw, bh));
             backBuffer.Graphics.CompositingMode = CompositingMode.SourceCopy;
-            font = SystemFonts.DefaultFont;
+            font = new Font("굴림체", 9);
         }
 
         public void FreeBuffer() {
@@ -62,7 +62,7 @@ namespace SoftwareRendering {
         }
 
         private void DrawGraphics(Graphics g, SceneManager scene) {
-            string info = $"fps:{1.0 / scene.timeDelta:0} time:{scene.timeDelta:0.000}sec";
+            string info = $"{scene.fpsAvg,4:f0} fps, {scene.dtimeAvg * 1000,5:f2} ms";
             var size = g.MeasureString(info, font);
             g.FillRectangle(Brushes.White, 0, 0, size.Width, size.Height);
             g.DrawString(info, font, Brushes.Black, 0, 0);

@@ -38,8 +38,6 @@ namespace SoftwareRendering {
 
         private void pbxDraw_Layout(object sender, LayoutEventArgs e) {
             renderer.ReallocBuffer(pbxDraw);
-            if (scene != null)
-                renderer.Draw(scene);
         }
 
         private void GameLoop() {
@@ -50,11 +48,13 @@ namespace SoftwareRendering {
                 if (this.IsDisposed)
                     break;
 
-                ProcessInput();
                 double timeNow = Util.GetTime();
-                UpdateScene(timeNow - timeOld);
+                double timeDelta = timeNow - timeOld;
                 timeOld = timeNow;
-                renderer.Draw(scene);
+                
+                ProcessInput();
+                UpdateScene(timeDelta);
+                Render();
             }
         }
 
@@ -62,8 +62,11 @@ namespace SoftwareRendering {
         }
 
         private void UpdateScene(double timeDelta) {
-            scene.timeDelta = timeDelta;
-            scene.mousePos = input.Pos;
+            scene.Update(timeDelta, input.Pos);
+        }
+
+        private void Render() {
+            renderer.Draw(scene);
         }
     }
 }
