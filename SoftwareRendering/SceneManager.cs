@@ -18,7 +18,7 @@ namespace SoftwareRendering {
         public void Update(double _timeDelta, Point _pos) {
             cnt++;
             sum += timeDelta;
-            if (sum > 1) {
+            if (sum > 0.5) {
                 dtimeAvg = sum / cnt;
                 fpsAvg = 1 / dtimeAvg;
                 cnt = 0;
