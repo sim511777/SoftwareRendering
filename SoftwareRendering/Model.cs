@@ -11,11 +11,6 @@ namespace SoftwareRendering {
         public Vector4 pos;
         public Vector4 norm;
         public Vector2 tpos;
-        public Vertex(Vector4 _pos, Vector4 _norm, Vector2 _tpos) {
-            pos = _pos;
-            norm = _norm;
-            tpos = _tpos;
-        }
     }
 
     public class ImageBuffer {
@@ -25,9 +20,13 @@ namespace SoftwareRendering {
         public int bytepp;
     }
 
-    public class Model {
+    public struct Mesh {
         public Vector<Vertex> vertices;
         public Vector<int> indices;
         public ImageBuffer texture;
+    }
+    
+    public class Model {
+        public Vector<Mesh> meshes;
     }
 }
