@@ -1,9 +1,11 @@
-﻿using System;
+﻿using SoftwareRendering.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -67,6 +69,24 @@ namespace SoftwareRendering {
 
         private void Render() {
             renderer.Draw(scene);
+        }
+
+        private void btnStart_Click(object sender, EventArgs e) {
+            var buf = Resources.start;
+            scene.LoadBsp(buf);
+        }
+
+        private void btnE1M1_Click(object sender, EventArgs e) {
+            var buf = Resources.e1m1;
+            scene.LoadBsp(buf);
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e) {
+            if (dlgOpen.ShowDialog(this) != DialogResult.OK)
+                return;
+
+            var buf = File.ReadAllBytes(dlgOpen.FileName);
+            scene.LoadBsp(buf);
         }
     }
 }
