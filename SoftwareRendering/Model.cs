@@ -7,26 +7,25 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SoftwareRendering {
-    public struct Vertex {
+    public class Vertex {
         public Vector4 pos;
         public Vector4 norm;
         public Vector2 tpos;
     }
 
-    public class ImageBuffer {
-        public IntPtr buf;
-        public int bw;
-        public int bh;
-        public int bytepp;
-    }
-
-    public struct Mesh {
-        public Vector<Vertex> vertices;
-        public Vector<int> indices;
-        public ImageBuffer texture;
+    public class Mesh {
+        public List<Vector3> pos = new List<Vector3>();
+        public List<Vector3> norm = new List<Vector3>();
+        public List<Vector2> tcoord = new List<Vector2>();
+        public List<int> indices = new List<int>();
     }
     
     public class Model {
-        public Vector<Mesh> meshes;
+        public Mesh mesh;
+        public ImageBuffer texture;
+        public Model(Mesh _mesh, ImageBuffer _texture) {
+            mesh = _mesh;
+            texture = _texture;
+        }
     }
 }

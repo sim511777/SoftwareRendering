@@ -58,7 +58,7 @@ namespace SoftwareRendering {
         private void RenderPixelBuffer() {
             var color = Color.Gray;
             int argb = color.ToArgb();
-            Util.Memset4(buf, argb, bw * bh);
+            Util.Memset4(buf, (uint)argb, bw * bh);
         }
 
         private void DrawGraphics(Graphics g, SceneManager scene) {

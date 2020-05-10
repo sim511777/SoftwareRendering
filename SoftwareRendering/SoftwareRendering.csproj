@@ -52,6 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bsp.cs" />
+    <Compile Include="ImageBuffer.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="RenderManager.cs" />
     <Compile Include="FormMain.cs">
@@ -76,6 +78,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -87,6 +90,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\colormap.lmp" />
+    <None Include="Resources\e1m1.bsp" />
+    <None Include="Resources\palette.lmp" />
+    <None Include="Resources\start.bsp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
