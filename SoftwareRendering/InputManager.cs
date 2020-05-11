@@ -16,9 +16,26 @@ namespace SoftwareRendering {
         public bool WheelDown { get; private set; }
 
         private Control control;
+        public bool viewFocus = false;
+        public Point viewCenterPt =  Point.Empty;
         public InputManager(Control _control) {
             control = _control;
             control.MouseWheel += this.Control_MouseWheel;
+            control.MouseDown += Control_MouseDown;
+            control.KeyDown += Control_KeyDown;
+        }
+
+        private void Control_MouseDown(object sender, MouseEventArgs e) {
+            viewFocus = true;
+            control.Cursor = Cursors.No;
+            viewCenterPt = Pos;
+        }
+
+        private void Control_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Escape) {
+                viewFocus = false;
+                control.Cursor = Cursors.Arrow;
+            }
         }
 
         private void Control_MouseWheel(object sender, MouseEventArgs e) {
@@ -47,7 +64,9 @@ namespace SoftwareRendering {
 
         public Point Pos {
             get {
-                return control.PointToClient(Control.MousePosition);
+                return control.PointToClient(Cursor.Position);
+            } set {
+                Cursor.Position = control.PointToScreen(value);
             }
         }
     }

@@ -64,7 +64,7 @@ namespace SoftwareRendering {
         }
 
         private void UpdateScene(double timeDelta) {
-            scene.Update(timeDelta, input.Pos);
+            scene.Update(timeDelta, input);
         }
 
         private void Render() {

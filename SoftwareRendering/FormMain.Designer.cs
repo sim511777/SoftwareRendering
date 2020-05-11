@@ -24,16 +24,16 @@
         /// </summary>
         private void InitializeComponent() {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pbxDraw = new System.Windows.Forms.Panel();
-            this.lblFps = new System.Windows.Forms.Label();
-            this.lblFace = new System.Windows.Forms.Label();
-            this.rdoTexture = new System.Windows.Forms.RadioButton();
-            this.rdoLightmap = new System.Windows.Forms.RadioButton();
-            this.chkNoVis = new System.Windows.Forms.CheckBox();
-            this.chkDrawEntity = new System.Windows.Forms.CheckBox();
-            this.btnStart = new System.Windows.Forms.Button();
-            this.btnLoad = new System.Windows.Forms.Button();
             this.btnE1M1 = new System.Windows.Forms.Button();
+            this.btnLoad = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.chkDrawEntity = new System.Windows.Forms.CheckBox();
+            this.chkNoVis = new System.Windows.Forms.CheckBox();
+            this.rdoLightmap = new System.Windows.Forms.RadioButton();
+            this.rdoTexture = new System.Windows.Forms.RadioButton();
+            this.lblFace = new System.Windows.Forms.Label();
+            this.lblFps = new System.Windows.Forms.Label();
+            this.pbxDraw = new System.Windows.Forms.Panel();
             this.dlgOpen = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -55,83 +55,15 @@
             this.panel1.Size = new System.Drawing.Size(197, 551);
             this.panel1.TabIndex = 0;
             // 
-            // pbxDraw
+            // btnE1M1
             // 
-            this.pbxDraw.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbxDraw.Location = new System.Drawing.Point(197, 0);
-            this.pbxDraw.Name = "pbxDraw";
-            this.pbxDraw.Size = new System.Drawing.Size(710, 551);
-            this.pbxDraw.TabIndex = 1;
-            this.pbxDraw.Layout += new System.Windows.Forms.LayoutEventHandler(this.pbxDraw_Layout);
-            // 
-            // lblFps
-            // 
-            this.lblFps.AutoSize = true;
-            this.lblFps.Location = new System.Drawing.Point(12, 9);
-            this.lblFps.Name = "lblFps";
-            this.lblFps.Size = new System.Drawing.Size(44, 12);
-            this.lblFps.TabIndex = 0;
-            this.lblFps.Text = "FPS:60";
-            // 
-            // lblFace
-            // 
-            this.lblFace.AutoSize = true;
-            this.lblFace.Location = new System.Drawing.Point(94, 9);
-            this.lblFace.Name = "lblFace";
-            this.lblFace.Size = new System.Drawing.Size(57, 12);
-            this.lblFace.TabIndex = 1;
-            this.lblFace.Text = "face:2000";
-            // 
-            // rdoTexture
-            // 
-            this.rdoTexture.AutoSize = true;
-            this.rdoTexture.Checked = true;
-            this.rdoTexture.Location = new System.Drawing.Point(14, 25);
-            this.rdoTexture.Name = "rdoTexture";
-            this.rdoTexture.Size = new System.Drawing.Size(66, 16);
-            this.rdoTexture.TabIndex = 2;
-            this.rdoTexture.Text = "Texture";
-            this.rdoTexture.UseVisualStyleBackColor = true;
-            // 
-            // rdoLightmap
-            // 
-            this.rdoLightmap.AutoSize = true;
-            this.rdoLightmap.Location = new System.Drawing.Point(96, 25);
-            this.rdoLightmap.Name = "rdoLightmap";
-            this.rdoLightmap.Size = new System.Drawing.Size(75, 16);
-            this.rdoLightmap.TabIndex = 3;
-            this.rdoLightmap.Text = "Lightmap";
-            this.rdoLightmap.UseVisualStyleBackColor = true;
-            // 
-            // chkNoVis
-            // 
-            this.chkNoVis.AutoSize = true;
-            this.chkNoVis.Location = new System.Drawing.Point(13, 47);
-            this.chkNoVis.Name = "chkNoVis";
-            this.chkNoVis.Size = new System.Drawing.Size(58, 16);
-            this.chkNoVis.TabIndex = 4;
-            this.chkNoVis.Text = "NoVis";
-            this.chkNoVis.UseVisualStyleBackColor = true;
-            // 
-            // chkDrawEntity
-            // 
-            this.chkDrawEntity.AutoSize = true;
-            this.chkDrawEntity.Location = new System.Drawing.Point(96, 47);
-            this.chkDrawEntity.Name = "chkDrawEntity";
-            this.chkDrawEntity.Size = new System.Drawing.Size(84, 16);
-            this.chkDrawEntity.TabIndex = 5;
-            this.chkDrawEntity.Text = "DrawEntity";
-            this.chkDrawEntity.UseVisualStyleBackColor = true;
-            // 
-            // btnStart
-            // 
-            this.btnStart.Location = new System.Drawing.Point(12, 69);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
-            this.btnStart.TabIndex = 6;
-            this.btnStart.Text = "Start";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.btnE1M1.Location = new System.Drawing.Point(12, 98);
+            this.btnE1M1.Name = "btnE1M1";
+            this.btnE1M1.Size = new System.Drawing.Size(75, 23);
+            this.btnE1M1.TabIndex = 8;
+            this.btnE1M1.Text = "E1M1";
+            this.btnE1M1.UseVisualStyleBackColor = true;
+            this.btnE1M1.Click += new System.EventHandler(this.btnE1M1_Click);
             // 
             // btnLoad
             // 
@@ -143,15 +75,84 @@
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
-            // btnE1M1
+            // btnStart
             // 
-            this.btnE1M1.Location = new System.Drawing.Point(12, 98);
-            this.btnE1M1.Name = "btnE1M1";
-            this.btnE1M1.Size = new System.Drawing.Size(75, 23);
-            this.btnE1M1.TabIndex = 8;
-            this.btnE1M1.Text = "E1M1";
-            this.btnE1M1.UseVisualStyleBackColor = true;
-            this.btnE1M1.Click += new System.EventHandler(this.btnE1M1_Click);
+            this.btnStart.Location = new System.Drawing.Point(12, 69);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.TabIndex = 6;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // chkDrawEntity
+            // 
+            this.chkDrawEntity.AutoSize = true;
+            this.chkDrawEntity.Location = new System.Drawing.Point(96, 47);
+            this.chkDrawEntity.Name = "chkDrawEntity";
+            this.chkDrawEntity.Size = new System.Drawing.Size(84, 16);
+            this.chkDrawEntity.TabIndex = 5;
+            this.chkDrawEntity.Text = "DrawEntity";
+            this.chkDrawEntity.UseVisualStyleBackColor = true;
+            // 
+            // chkNoVis
+            // 
+            this.chkNoVis.AutoSize = true;
+            this.chkNoVis.Location = new System.Drawing.Point(13, 47);
+            this.chkNoVis.Name = "chkNoVis";
+            this.chkNoVis.Size = new System.Drawing.Size(58, 16);
+            this.chkNoVis.TabIndex = 4;
+            this.chkNoVis.Text = "NoVis";
+            this.chkNoVis.UseVisualStyleBackColor = true;
+            // 
+            // rdoLightmap
+            // 
+            this.rdoLightmap.AutoSize = true;
+            this.rdoLightmap.Location = new System.Drawing.Point(96, 25);
+            this.rdoLightmap.Name = "rdoLightmap";
+            this.rdoLightmap.Size = new System.Drawing.Size(75, 16);
+            this.rdoLightmap.TabIndex = 3;
+            this.rdoLightmap.Text = "Lightmap";
+            this.rdoLightmap.UseVisualStyleBackColor = true;
+            // 
+            // rdoTexture
+            // 
+            this.rdoTexture.AutoSize = true;
+            this.rdoTexture.Checked = true;
+            this.rdoTexture.Location = new System.Drawing.Point(14, 25);
+            this.rdoTexture.Name = "rdoTexture";
+            this.rdoTexture.Size = new System.Drawing.Size(66, 16);
+            this.rdoTexture.TabIndex = 2;
+            this.rdoTexture.TabStop = true;
+            this.rdoTexture.Text = "Texture";
+            this.rdoTexture.UseVisualStyleBackColor = true;
+            // 
+            // lblFace
+            // 
+            this.lblFace.AutoSize = true;
+            this.lblFace.Location = new System.Drawing.Point(94, 9);
+            this.lblFace.Name = "lblFace";
+            this.lblFace.Size = new System.Drawing.Size(57, 12);
+            this.lblFace.TabIndex = 1;
+            this.lblFace.Text = "face:2000";
+            // 
+            // lblFps
+            // 
+            this.lblFps.AutoSize = true;
+            this.lblFps.Location = new System.Drawing.Point(12, 9);
+            this.lblFps.Name = "lblFps";
+            this.lblFps.Size = new System.Drawing.Size(44, 12);
+            this.lblFps.TabIndex = 0;
+            this.lblFps.Text = "FPS:60";
+            // 
+            // pbxDraw
+            // 
+            this.pbxDraw.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbxDraw.Location = new System.Drawing.Point(197, 0);
+            this.pbxDraw.Name = "pbxDraw";
+            this.pbxDraw.Size = new System.Drawing.Size(710, 551);
+            this.pbxDraw.TabIndex = 1;
+            this.pbxDraw.Layout += new System.Windows.Forms.LayoutEventHandler(this.pbxDraw_Layout);
             // 
             // dlgOpen
             // 
